@@ -1,0 +1,36 @@
+
+    <div class="page-heading">
+						<h2>selecciona tu opcion preferida :</h2>
+						
+					</div>
+<div class="details">
+				 <div class="recentOrders">
+            
+	<table>
+     
+							
+	 <form action="/menu/adiAdi" method="POST">
+									
+	<fieldset>
+		{{#each pu }}
+	  <div>
+		<p>
+	     <input type="radio" name="opcion" id="{{id_adi}}" value="{{nombreadic}}">
+	     <label for="{{nombreadic}}">{{nombreadic}} precio : {{precio}}</label>
+		</p>
+	  </div>
+	 {{/each}}
+	</fieldset>
+	 <a href="/menu/comprando" >volver al carrito</a>
+
+	 	<input type="submit" value="guardar cambios">
+				
+				</form>
+				 </div> 
+        </div>
+		
+ 
+ 										
+
+
+ 

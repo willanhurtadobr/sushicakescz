@@ -1,0 +1,85 @@
+<script>
+    function previewImage(nb) {        
+        var reader = new FileReader();
+        reader.readAsDataURL(document.getElementById('image' + nb).files[0]); 
+    reader.onload = function (e) {             
+        document.getElementById('uploadPreview'+nb).src = e.target.result;         
+    };     
+}
+</script> 
+<div id="banner">
+        <div id="imagen">
+          <img src="/img/logo2.png"> 
+        </div>
+</div> 
+
+         
+
+ {{#each secciones}}
+
+  <h2 class="page-heading"> {{nombresec}} </h2>
+  <div class="containerca">
+    {{#each productos}}
+        
+          <div class="card">
+            
+                  <div class="imgBx">
+                  {{#if imagen}}
+                  <img id="uploadPreview{{id_produ}}" width="260" height="200" src="{{imagen}}" />
+                  {{else}}
+                  <img id="uploadPreview{{id_produ}}" width="260" height="200" src="/img/imagen-no-disponible.png" />
+                  {{/if}}
+                
+              </div>
+           
+            <div class="content">
+                <p>
+                <h2><b>{{nombre}}</b></h2>   <br>
+                <fieldset> 
+                   <legend><b>Descripcion del producto</b></legend> 
+                   {{descripcion}}<br>
+                  </fieldset>
+                   {{#if porciones}}
+                    <fieldset> 
+                      <legend>Porciones disponibles:</legend>  
+                        {{porciones}} <b>UDS</b> <br>
+                    </fieldset>
+                   {{/if}}                 
+                </p>
+                 <b> <h3>precio : {{precio}} Bs </h3> </b><br>
+                
+                  <form action="/menu/add-carrito/{{id_produ}}" method="POST">
+                  <input type="hidden" value="{{nombre}}" name="nombre" >
+
+                  <input type="hidden" name="precio" value="{{precio}}">
+                  <input type="hidden" name="descripcion" value="{{descripcion}}">
+                  <input type="hidden" name="cantidad"value=1>
+                  <input type="submit" class="status return" value="añadir al carrito" >
+                  </span>
+                  </form>
+                 
+										
+										
+              </p> 
+            </div>
+          </div>
+        
+      {{/each}}
+</div>
+{{/each}} 
+
+
+  <a href="/menu/comprando" class="status return">
+						<span class="icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
+						<span class="title">ver carrito </span>
+					</a>
+
+<br>
+<br>
+<br>
+<br>
+
+            
+
+
+ 

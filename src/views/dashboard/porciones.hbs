@@ -1,0 +1,26 @@
+ <br>
+  {{#each porci }}
+              <fieldset>
+                  <legend>Porcionwes actuales: </legend>
+                     <p>
+                   <h2> {{nombrepor}}  precio: {{precio}} 
+                       <span class="status return">
+							<a href="/dashboard/deletePor/{{id_por}}">eliminar  </a>
+						</span>
+                   </h2> 
+                        <br>
+                     </p>
+              </fieldset>    
+             
+                     {{/each}} 
+<br>
+                 <form action="/dashboard/porciones/{{id_produ}}" method="POST">
+                   <fieldset>
+                     <legend>introduzca las porciones disponibles para este producto</legend>
+                      <input type="text" name="nombrepor" placeholder="nueva porcion">
+                      <input type="number" name="precio">
+                      <input type="submit" value="agregar porcion"><br>
+                    </fieldset>
+                  </form>   
+
+                <a class="page-heading" href="/dashboard">volver</a>

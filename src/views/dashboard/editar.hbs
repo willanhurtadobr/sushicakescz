@@ -1,0 +1,87 @@
+<script>
+    function previewImage(nb) {        
+        var reader = new FileReader();
+        reader.readAsDataURL(document.getElementById('image' + nb).files[0]); 
+    reader.onload = function (e) {             
+        document.getElementById('uploadPreview'+nb).src = e.target.result;         
+    };     
+}
+</script> 
+ <div class="container">
+        <div class="card">
+            {{#each editar}}
+            
+              <div class="imgBx">
+
+                  {{#if imagen}}
+                  <img id="uploadPreview{{id_produ}}" width="260" height="200" src="{{imagen}}" />
+                  {{else}}
+                  <img id="uploadPreview{{id_produ}}" width="260" height="200" src="/img/imagen-no-disponible.png" />
+                  {{/if}}   
+
+              </div><br>
+           
+          
+                
+                <div>
+                   <form action="/dashboard/editado/{{id_produ}}" method="POST">
+                        <fieldset>
+                               <legend>mdofica la información del producto</legend>
+                                <p>
+                                    <input type="text" name="nombre" value="{{nombre}} " >
+                                    <input type="text" name="descripcion" value="{{descripcion}}" >
+                                    <input type="number" name="precio" value="{{precio}}" >
+                                    <input type="submit" value="finalizar edicion y vovler al dashboard">
+                                
+                                </p>
+                       </fieldset> 
+                    </form>
+                </div><br>
+                <div>
+                   <form action="/images/upload/{{id_produ}}" method="POST" enctype="multipart/form-data">
+                      <fieldset>
+                            <legend>adiciona o modifica la imagen del producto</legend>
+                            <p>
+                                <input type="file" id="image{{id_produ}}" name="imagen" onchange="previewImage({{id_produ}});">
+                                <input type="submit" value="Guardar Imagen">
+                            </p>
+                     
+                       </fieldset>
+                    </form>  
+                </div><br>
+                <div>  
+                     {{#each adicionales}}
+                     <p>
+                       <fieldset>
+                           <legend>opciones actuales del producto </legend>
+                           <h2> {{nombreadic}} precio: {{precio}} 
+
+                                <span class="status return">
+                                    <a href="/dashboard/deleteadi/{{id_adi}}">eliminar  </a>
+                                </span>
+
+                           </h2> 
+                            
+                       </fieldset>
+                     </p>
+                     {{/each}}
+                </div><br>
+                <div>
+                    
+                    <form action="/dashboard/adicionales/{{id_produ}}" method="POST">
+                      <fieldset>
+                            <legend>adiciona opciones para el producto </legend>
+                            <input type="text" name="nombreadic" placeholder="nueva opcion" >
+                            <input type="number" name="precio" placeholder="precio si es de paga">
+                            <input type="hidden" name="id_produ" value="{{id_produ}}">
+                            <input type="submit" value="agregar opcion">
+                      </fieldset>
+                    </form>
+                     
+                </div>
+     </div>
+              <a class="page-heading" href="/dashboard/porciones/{{id_produ}}">Editar porciones</a>
+            {{/each}}
+            
+    </div>
+          

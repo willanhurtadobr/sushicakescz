@@ -1,0 +1,38 @@
+<section id="log">
+            <div class="containerlog">
+                <div class="user signinBx">
+                    <div class="imgBx"><img src="/img/productos/101.jpg"></div>
+                    <div class="formBx">
+                        <form action="/authentication/signin" method="POST">
+                            <h2>Sign In</h2>
+                            <input type="text" name="user_name" placeholder="Username">
+                            <input type="password" name="password" placeholder="Password">
+                            <input type="submit" name="" value="Login">
+                            <p class="signup">don't have an account? <a href="#" onclick="toggleForm();">Sign up.</a></p>
+                        </form>
+                    </div>
+                </div>
+                <div class="user signupBx">
+                    <div class="formBx">
+                        <form action="/authentication/signup" method="POST">
+                            <h2>Create an account</h2>
+                            <input type="text" name="user_name" placeholder="Username">
+                            <input type="number" name="id_direc" placeholder="direct">
+                            <input type="password" name="password" placeholder="Create Password">
+                            <input type="password" name="" placeholder="Confirm Password">
+                            <input type="submit" name="" value="Sign up">
+                            <p class="signup">Already have an account? <a href="#" onclick="toggleForm();">Sign in.</a></p>
+                        </form>
+                    </div>
+                    <div class="imgBx"><img src="/img/log.gif"></div>
+                </div>
+            </div>
+        </section>
+        <script type="text/javascript">
+            function toggleForm(){
+                var containerlog = document.querySelector('.containerlog');
+                var section = document.querySelector('section');
+                containerlog.classList.toggle('active')
+                section.classList.toggle('active')
+            }
+        </script>

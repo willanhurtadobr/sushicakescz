@@ -1,0 +1,126 @@
+
+    <div class="page-heading">
+						<h2>mi carrito</h2>
+						
+					</div>
+<div class="details">
+				 <div class="recentOrders">
+            
+	<table>
+
+							<tbody>
+                  {{#each carr}}
+
+								<tr>
+									<td>
+									    
+								    	<h3>nombre:</h3><br>
+										<H2>{{nombre}}</H2>
+										
+									</td>
+									 
+									<td>
+										<h3>descripcion:</h3><br>
+										{{#if  descripcion}}
+										 {{descripcion}}
+										 
+										 {{else}}
+                                          no hay na 
+										 {{/if}}
+                                     
+										</td>
+
+									<td>
+									{{#if  opcion}}
+									<h3>{{opcion}}</h3>
+								     {{else}}
+									{{#if adicionales}}
+									
+									<td>
+									 <div>	
+									 <h5>opcion:  </h5> <A class="page-heading" href="/menu/mostrarAdi/{{id_produ}}">selecionar</A>
+									</td>
+									{{else}}
+									
+									<td></td>
+									{{/if}}
+									{{/if}}
+									</td>
+									<td> 
+										<h3>cantidad :</h3><br>
+										{{cantidad}}</td>
+										
+									<td>
+										<h3>precio :</h3><br>
+										{{precio}} <b>BS</b></td>
+										
+									
+									<td><span class="status delivered">
+										<a href="/menu/aumentar/{{id_pedidos}}" >+</a>
+										</span>
+										<span class="status return">
+										<a href="/menu/quitar/{{id_pedidos}}" >-</a>
+										</span></td>
+										</td>
+
+								   </tr>
+									<td>
+								   </tr>
+								   				 <form action="/menu/pedir" method="POST"></form>
+
+								   <input type="hidden" name="id_pedidos" value="{{id_pedidos}}">
+				  {{else}}				 
+                  <h2 class="page-heading" > aun no tiene nada en el carrito </h2>
+				
+				  {{/each}} 
+			
+				  
+				
+					
+	    		</tbody>
+		
+	 </table>
+         <h2 class="page-heading">Ingrese sus datos porfavor: </h2><br>
+	 <form action="/menu/pedir" method="POST">
+	  <input type="text" name="nombrecli" placeholder="inserte su nombre">
+	  <input type="tel"  name="telefono"  placeholder="63047398" maxlength="8" required ><br>
+         <br>	
+       <fieldset>
+		<legend>seleccione el tipo de pago :</legend>
+	  <div>
+		<p>
+	     <input type="radio" name="tipoDePago" id="tarjeta" value="tarjeta">
+	     <label for="tarjeta">tarjeta</label>
+		</p>
+	  </div>
+	
+	  <div>
+	     <input type="radio" name="tipoDePago" id="efectivo" value="efectivo">
+	     <label for="efectivo">efectivo</label>
+	  </div>
+	</fieldset><br>
+	<fieldset>
+		<legend>seleccione su tipo de pedido :</legend>
+	   <div>
+	       <p>
+		      <input type="radio" name="tipoDeEnvio" id="delivery" value="delivery" >
+	          <label for="delivery">delivery</label>
+		   </p>
+	   </div>
+	  <div> 
+	       <p>
+		     <input type="radio" name="tipoDeEnvio" id="retirada" value="retirada">
+	         <label for="retirada">recoger</label>
+	       </p>
+	</fieldset><br>  
+	 	<input type="submit" value="hacer mi pedido ">
+				<br>
+				</form>
+				 </div> 
+        </div>
+		
+ 
+ 										
+
+
+ 

@@ -1,0 +1,17 @@
+ <div class="container">
+      {{#each selec}}
+ <div class="card">
+                   <form action="/dashboard/newprodu" method="POST" >
+                      
+                      <input type="text" name="nombre" placeholder="nuevo producto" >
+                      <input type="text" name="descripcion" placeholder="nueva descripcion" >
+                      <input type="number" name="precio" placeholder="nuevo precio " >
+                      <input type="text" name="porciones" placeholder="30,50,100">
+                      <input type="hidden" name="id_sec" value={{id_sec}}>
+                      <input type="submit" value="Submit">
+                  </form>
+                
+            </div>
+{{/each}}
+          </div>
+          </div>

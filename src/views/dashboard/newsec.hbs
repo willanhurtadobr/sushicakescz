@@ -1,0 +1,14 @@
+    <div class="container">
+        <h1>adicionar nueva seccion</h1>
+            <div class="card">
+                    {{#each seco}}
+                    
+                       <form action="/dashboard/newsect" method="post">
+                       <input type="text" name="nombresec" placeholder="nombre"><br>
+                       <input type="hidden" name="id_direc" value="{{id_direc}}">
+                       <label >{{direccion}}</label>
+                       <input type="submit" name="submit">
+                       </form>   
+                    {{/each}}
+            </div>
+        </div> 
